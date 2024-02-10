@@ -4,7 +4,7 @@ import { Avatar, Card} from 'react-native-paper';
 import TxtInput from '../TextInput/TxtInput';
 import Button from '../Button/Btn';
 import dateFormat from "dateformat";
-import { capitalCase } from "capital-case";
+import { capitalize } from 'lodash';
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
@@ -18,7 +18,8 @@ export default function Cad() {
             const lankaNIC = require("lanka-nic");
             let { dateOfBirth, gender } = lankaNIC.getInfoFromNIC(nic);
             setBday(dateFormat(dateOfBirth, 'dddd, mmmm d, yyyy'))
-            setGender(gender);
+            const capitalizedString = capitalize(gender);
+            setGender(capitalizedString)
     }
 
     const clear = () => {
