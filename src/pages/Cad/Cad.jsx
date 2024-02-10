@@ -13,6 +13,7 @@ export default function Cad() {
     const [nic,setNic]= useState("")
     const [bday,setBday]= useState("")
     const [gender,setGender]= useState("")
+    const [age,setAge]= useState("")
 
     const search = () => {
             const lankaNIC = require("lanka-nic");
@@ -20,6 +21,7 @@ export default function Cad() {
             setBday(dateFormat(dateOfBirth, 'dddd, mmmm d, yyyy'))
             const capitalizedString = capitalize(gender);
             setGender(capitalizedString)
+            // ageCalculater(dateOfBirth)
     }
 
     const clear = () => {
@@ -27,6 +29,12 @@ export default function Cad() {
         setBday("")
         setGender("")
     }
+
+    // const ageCalculater = (dateOfBirth) => {
+    //     const date = new Date();
+    //    var  dbAge = date - dateOfBirth;
+    //     console.log(dbAge);
+    // }
 
   return (
     <Card>
@@ -38,6 +46,7 @@ export default function Cad() {
         <View style={styles.view}>
             <Text style={styles.text}>{bday}</Text>
             <Text style={styles.text}>{gender}</Text>
+            <Text style={styles.text}>{age}</Text>
         </View>
 
         <View style={styles.view}>
