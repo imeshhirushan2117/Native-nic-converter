@@ -3,6 +3,8 @@ import { View,Text, StyleSheet } from 'react-native';
 import { Avatar, Card} from 'react-native-paper';
 import TxtInput from '../TextInput/TxtInput';
 import Button from '../Button/Btn';
+import dateFormat from "dateformat";
+import { capitalCase } from "capital-case";
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
@@ -13,24 +15,16 @@ export default function Cad() {
     const [gender,setGender]= useState("")
 
     const search = () => {
-        if(nic == ""){
-            setGender("Please Enter Valid CNIC Number !")
-        }else{
-           
             const lankaNIC = require("lanka-nic");
             let { dateOfBirth, gender } = lankaNIC.getInfoFromNIC(nic);
-            setBday(dateOfBirth.toLocaleDateString());
+            setBday(dateFormat(dateOfBirth, 'dddd, mmmm d, yyyy'))
             setGender(gender);
-        }
-
-           
     }
 
     const clear = () => {
         setNic("")
         setBday("")
         setGender("")
-
     }
 
   return (

@@ -10,6 +10,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "capital-case": "^2.0.0",
+    "dateformat": "^5.0.3",
     "lanka-nic": "^1.0.0",
     "react": "18.2.0",
     "react-native": "0.73.4",
