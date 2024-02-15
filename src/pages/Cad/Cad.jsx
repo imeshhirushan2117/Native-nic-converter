@@ -16,6 +16,8 @@ export default function Cad() {
     const [age,setAge]= useState("")
 
     const search = () => {
+       
+
             const lankaNIC = require("lanka-nic");
             let { dateOfBirth, gender } = lankaNIC.getInfoFromNIC(nic);
             setBday(dateFormat(dateOfBirth, 'dddd, mmmm d, yyyy'))
@@ -23,6 +25,12 @@ export default function Cad() {
             setGender(capitalizedString)
             // ageCalculater(dateOfBirth)
     }
+
+   const validation = (nic) => {
+    const validateRegex = /^([0-9]{9}[xXvV]|[0-9]{12})$/;
+    const isValid = validateRegex.test(nic);
+    return isValid;
+   }
 
     const clear = () => {
         setNic("")
